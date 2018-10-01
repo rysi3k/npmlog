@@ -32,7 +32,7 @@ export interface MessageObject {
 }
 
 // TODO: newStream, newGroup, setGaugeTemplate and setGaugeTemplateSet need to be added
-interface npmlog {
+export interface npmlog {
     log(level: LogLevels | string, prefix: string, message: string, ...args: any[]): void;
 
     silly(prefix: string, message: string, ...args: any[]): void;
@@ -66,6 +66,8 @@ interface npmlog {
     resume(): void;
 
     addLevel(level: string, n: number, style?: StyleObject, disp?: string): void;
+    
+    [name: string]: npmlog;
 }
 
 declare const logger: npmlog;
